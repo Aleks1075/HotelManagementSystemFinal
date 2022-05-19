@@ -55,11 +55,11 @@ public class FileIO implements IO
                 String end = in.next();
                 for (int i = 0; i < rooms.size(); i++) {
                     if(rooms.get(i).getRoomNumber() == roomNum){
-                       rooms.get(i).setStatus(true);
-                       Room room = getRoom(roomNum);
-                       bookings.add(new Booking(room, guest, days, start, end));
-                       System.out.println("Værelse er nu reserveret!");
-                       return;
+                        rooms.get(i).setStatus(true);
+                        Room room = getRoom(roomNum);
+                        bookings.add(new Booking(room, guest, days, start, end));
+                        System.out.println("Værelse er nu reserveret!");
+                        return;
                     }
                 }
             }
@@ -74,8 +74,8 @@ public class FileIO implements IO
 
     public boolean isAvailable(int roomNum) {
         for (int i = 0; i < rooms.size(); i++) {
-            if(rooms.get(i).getRoomNumber() == roomNum && rooms.get(i).isStatus() == false){
-               return true; 
+            if (rooms.get(i).getRoomNumber() == roomNum && rooms.get(i).isStatus() == false) {
+                return true;
             }
         }
         return false;
@@ -103,7 +103,7 @@ public class FileIO implements IO
             System.out.println(foodOrder.get(i).toString());
         }
     }
-    
+
     public void checkout() {
         Scanner in = new Scanner(System.in);
         System.out.print("Indtast værelsesnummer: ");
@@ -209,7 +209,7 @@ public class FileIO implements IO
                 String[] line = in.nextLine().split(",");
                 foodOrder.add(new Food(Integer.parseInt(line[0]), line[1], Double.parseDouble(line[2])));
             }
-            
+
             in = new Scanner(new File("src/rooms.csv"));
             while(in.hasNextLine()){
                 String[] line = in.nextLine().split(",");
@@ -217,7 +217,7 @@ public class FileIO implements IO
                 for (int i = 5; i < line.length; i++) {
                     facilities += line[i]+" ";
                 }
-                rooms.add(new Room(Integer.parseInt(line[0]), line[1], line[2], Double.parseDouble(line[3]), 
+                rooms.add(new Room(Integer.parseInt(line[0]), line[1], line[2], Double.parseDouble(line[3]),
                         Boolean.parseBoolean(line[4]), facilities));
             }
             in = new Scanner(new File("src/bookings.csv"));
@@ -227,7 +227,7 @@ public class FileIO implements IO
                 Guest guest = findGuest(line[1]);
                 bookings.add(new Booking(room, guest, Integer.parseInt(line[2]), line[3], line[4]));
             }
-            
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             e.printStackTrace();

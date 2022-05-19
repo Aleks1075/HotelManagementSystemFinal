@@ -1,6 +1,6 @@
 
 public class Room {
-    
+
     private int roomNumber = 0;
     private String size;        //double or single
     private String category;    //standard or luxury
@@ -16,11 +16,11 @@ public class Room {
         this.price = price;
         this.facilities = facilities;
     }
-    
+
     public String getFormattedRoom(){
         return roomNumber+","+size+","+category+","+price+","+status+","+facilities;
     }
-    
+
     public int getRoomNumber() {
         return roomNumber;
     }
@@ -71,8 +71,8 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room Number: " + roomNumber + ", Size: " + size + ", Category: " + category 
+        return "Room Number: " + roomNumber + ", Size: " + size + ", Category: " + category
                 + ", Price: DKK " + price + ", Status: " + status + ", Facilities: " + facilities;
     }
-    
+
 }

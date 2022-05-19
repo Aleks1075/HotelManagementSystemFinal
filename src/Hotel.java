@@ -10,7 +10,7 @@ public class Hotel
         Scanner in = new Scanner(System.in);
 
         while (true)
-            {
+        {
             System.out.println("Velkommen til booking system");
             System.out.println("-------------------------------");
             System.out.println("1. Registrer gæst");
@@ -24,7 +24,7 @@ public class Hotel
             System.out.print("Indtast dit valg: ");
             int choice = in.nextInt();
             switch (choice)
-                {
+            {
                 case 1:
                     fileIO.registerGuest();
                     break;
@@ -55,7 +55,7 @@ public class Hotel
                 default:
                     System.out.println("Ugyldigt valg!");
                     break;
-                }
             }
+        }
     }
 }

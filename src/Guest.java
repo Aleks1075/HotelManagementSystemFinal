@@ -1,6 +1,6 @@
 
 public class Guest {
-    
+
     private String name;
     private String gender;
     private String country;
@@ -49,5 +49,5 @@ public class Guest {
     public String toString() {
         return "Name: " + name + ", Gender: " + gender + ", Country: " + country + ", Contact: " + contact;
     }
-    
+
 }
