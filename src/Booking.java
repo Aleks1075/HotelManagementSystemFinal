@@ -21,15 +21,15 @@ public class Booking {
     }
 
     public String getReceipt(){
-        String recipt = "--------------------------------\n";
-        recipt += "\t\tRECEIPT\n";
-        recipt += "--------------------------------\n";
-        recipt += String.format("Room Number %20s%n", room.getRoomNumber());
-        recipt += String.format("Number Of Days %20s%n", days);
-        recipt += String.format("Start Date %20s%n", startDate);
-        recipt += String.format("End Date %20s%n", endDate);
-        recipt += String.format("Total Bill for room and food if ordered %20s%n", String.format("%.2f", (days*room.getPrice())));//+food.getFoodPrice())));
-        recipt += "--------------------------------";
+        String recipt = "-------------------------------------\n";
+        recipt += "\t\t\tKVITTERING\n";
+        recipt += "-------------------------------------\n";
+        recipt += String.format("Værelsesnummer: %8s%n", room.getRoomNumber());
+        recipt += String.format("Antal af dage: %8s%n", days);
+        recipt += String.format("Start dato: %20s%n", startDate);
+        recipt += String.format("Slut dato:  %20s%n", endDate);
+        recipt += String.format("Total beløb for værelse og mad: %1s%n", String.format("%.2f", (days*room.getPrice())));//+food.getFoodPrice())));
+        recipt += "-------------------------------------" + "\n";
         return recipt;
     }
 

@@ -17,7 +17,7 @@ public class FileIO implements IO
 
     public void registerGuest() {
         Scanner in = new Scanner(System.in);
-        System.out.print("Gæst navn: ");
+        System.out.print("Fulde navn: ");
         String name = in.nextLine();
         System.out.print("Køn (M/K): ");
         String gender = in.next();
@@ -40,7 +40,7 @@ public class FileIO implements IO
 
     public void bookRoom() {
         Scanner in = new Scanner(System.in);
-        System.out.print("Indtast gæste navn: ");
+        System.out.print("Indtast fulde navn: ");
         String name  = in.nextLine();
         if(findGuest(name) != null){
             Guest guest = findGuest(name);
@@ -49,9 +49,9 @@ public class FileIO implements IO
             if(isAvailable(roomNum)){
                 System.out.print("Indtast antal dage: ");
                 int days = in.nextInt();
-                System.out.print("Indtast startdato: ");
+                System.out.print("Indtast startdato (dd/mm/åååå): ");
                 String start = in.next();
-                System.out.print("Indtast slutdato: ");
+                System.out.print("Indtast slutdato (dd/mm/åååå): ");
                 String end = in.next();
                 for (int i = 0; i < rooms.size(); i++) {
                     if(rooms.get(i).getRoomNumber() == roomNum){
@@ -72,6 +72,13 @@ public class FileIO implements IO
         }
     }
 
+    public void showAllRooms()
+    {
+        for (int i = 0; i < rooms.size(); i++) {
+            System.out.println(rooms.get(i).toString());
+        }
+    }
+
     public boolean isAvailable(int roomNum) {
         for (int i = 0; i < rooms.size(); i++) {
             if (rooms.get(i).getRoomNumber() == roomNum && rooms.get(i).isStatus() == false) {
@@ -88,7 +95,7 @@ public class FileIO implements IO
         for (int i = 0; i < bookings.size(); i++) {
             if(bookings.get(i).getRoom().getRoomNumber() == roomNum){
                 System.out.print("Indtast varer til bestilling: ");
-                int items = in.nextInt();
+                String items = in.next();
                 foodOrder.get(i).placeOrder(items);
                 bookings.get(i).setFood(new Food(9,foodOrder.get(i).getFoodItem(), foodOrder.get(i).getFoodPrice()));
                 System.out.println("Ordren er afgivet!");
