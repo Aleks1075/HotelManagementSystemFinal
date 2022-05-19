@@ -72,6 +72,13 @@ public class FileIO implements IO
         }
     }
 
+    public void showAllBookings()
+    {
+        for (int i = 0; i < bookings.size(); i++) {
+            System.out.println(bookings.get(i).toString());
+        }
+    }
+
     public void showAllRooms()
     {
         for (int i = 0; i < rooms.size(); i++) {
@@ -150,6 +157,13 @@ public class FileIO implements IO
             }
         }
         System.out.println("Beklager, dette værelse er ikke reserveret!");
+    }
+
+    public void showAllRegisteredGuests()
+    {
+        for (int i = 1; i < guests.size(); i++) {
+            System.out.println(guests.get(i).toString());
+        }
     }
 
     public Guest findGuest(String name) {

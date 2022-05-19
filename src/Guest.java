@@ -47,7 +47,7 @@ public class Guest {
 
     @Override
     public String toString() {
-        return "Name: " + name + ", Gender: " + gender + ", Country: " + country + ", Contact: " + contact;
+        return "Navn: " + name + ", Køn: " + gender + ", Nationalitet: " + country + ", Kontakt: " + contact;
     }
 
 }

@@ -83,8 +83,8 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Room Number " + room.getRoomNumber() + " has been booked by "+guest.getName()+
-                " from " + startDate + " to " + endDate;
+        return "Værelsesnummer " + room.getRoomNumber() + " er booket af "+guest.getName()+
+                " fra " + startDate + " til " + endDate;
     }
 
 }
