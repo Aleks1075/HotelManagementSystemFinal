@@ -14,7 +14,6 @@ public class Booking {
         this.days = days;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.food = food;
     }
     
     public String getFormattedBooking(){
@@ -29,11 +28,19 @@ public class Booking {
         recipt += String.format("Number Of Days %20s%n", days);
         recipt += String.format("Start Date %20s%n", startDate);
         recipt += String.format("End Date %20s%n", endDate);
-        recipt += String.format("Total Bill for room and food if ordered %20s%n", String.format("%.2f", (days*room.getPrice()*food.getFoodPrice())));
+        recipt += String.format("Total Bill for room and food if ordered %20s%n", String.format("%.2f", (days*room.getPrice()+food.getFoodPrice())));
         recipt += "--------------------------------"; 
         return recipt;
     }
-    
+
+    public Food getFood() {
+        return food;
+    }
+
+    public void setFood(Food food) {
+        this.food = food;
+    }
+
     public Room getRoom() {
         return room;
     }

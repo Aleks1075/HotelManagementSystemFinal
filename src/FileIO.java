@@ -10,7 +10,11 @@ public class FileIO implements IO
     ArrayList<Room> rooms = new ArrayList<>();
     ArrayList<Booking> bookings = new ArrayList<>();
     ArrayList<Food> foodOrder = new ArrayList<>();
-    
+
+    public ArrayList<Food> getFoodOrder() {
+        return foodOrder;
+    }
+
     public void registerGuest() {
         Scanner in = new Scanner(System.in);
         System.out.print("Gæst navn: ");
@@ -84,8 +88,9 @@ public class FileIO implements IO
         for (int i = 0; i < bookings.size(); i++) {
             if(bookings.get(i).getRoom().getRoomNumber() == roomNum){
                 System.out.print("Indtast varer til bestilling: ");
-                String items = in.nextLine();
+                int items = in.nextInt();
                 foodOrder.get(i).placeOrder(items);
+                bookings.get(i).setFood(new Food(9,foodOrder.get(i).getFoodItem(), foodOrder.get(i).getFoodPrice()));
                 System.out.println("Ordren er afgivet!");
                 return;
             }

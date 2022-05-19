@@ -11,7 +11,7 @@ public class Food
         this.ID = ID;
     }
 
-    public void placeOrder(String order){
+    public void placeOrder(int order){
         foodItem += order+", ";
     }
 
