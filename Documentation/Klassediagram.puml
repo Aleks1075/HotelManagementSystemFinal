@@ -98,8 +98,13 @@ Room : +String getSize()
 Room : +setSize(String size)
 Room : +String getCategory()
 Room : +setCategory(String category)
-
-
+Room : +boolean isStatus()
+Room : +setStatus(boolean status)
+Room : +String getFacilities()
+Room : +setFacilities(String facilities)
+Room : +double getPrice()
+Room : +setPrice(double price)
+Room : +String toString()
 
 
 @enduml
