@@ -2,27 +2,104 @@
 
 !pragma layout smetana
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+class Main
+class Hotel
+class Booking
+class Room
+class Guest
+class Food
+class FileIO
+interface IO
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
+Main *-- "*" Hotel: has-a
+Hotel *-- Booking
+Hotel *-- "20" Room
+Hotel o-- Guest: has-a
+Hotel *-- IO
+IO <|.. FileIO
+Hotel o-- Food: has-a
 
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
+Main : + static main(String[] args)
+Hotel :  +HotelManagement()
 
-class ArrayList {
-Object[] elementData
-size()
-}
+Booking : -Room room
+Booking : -Guest guest
+Booking : -Food food
+Booking : -int days
+Booking : -String startDate
+Booking : -String endDate
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
-}
+Room : -int roomNumber
+Room : -String size
+Room : -String category
+Room : -boolean status
+Room : -double price
+Room : -String facilities
+
+Guest : -String name
+Guest : -String gender
+Guest : -String country
+Guest : -String contact
+
+Food : -String foodItem
+Food : -double foodPrice
+Food : -int ID
+
+FileIO : +ArrayList<Guest> guests
+FileIO : +ArrayList<Room> rooms
+FileIO : +ArrayList<Booking> bookings
+FileIO : +ArrayList<Food> foodOrder
+
+IO : + saveData()
+IO : + readData()
+
+FileIO : +getFoodOrder()
+FileIO : +registerGuest()
+FileIO : +showAvailableRooms()
+FileIO : +bookRoom()
+FileIO : +showAllBookings()
+FileIO : +showAllRooms()
+FileIO : +isAvailable(int roomNum)
+FileIO : +orderFood()
+FileIO : +showFoodMenu()
+FileIO : +checkout()
+FileIO : +cancelBooking()
+FileIO : +showAllRegisteredGuests()
+FileIO : +findGuest(String name)
+FileIO : +getRoom(int roomNum)
+FileIO : +saveData()
+FileIO : +readData()
+
+Food : +Food(int ID, String foodItem, double foodPrice)
+Food : +void placeOrder(String order)
+Food : +getFoodItem()
+Food : +setFoodItem(String foodItem)
+Food : +getFoodPrice()
+Food : +setFoodPrice(int foodPrice)
+Food : +getFormattedFood()
+Food : +String toString()
+
+Guest : +Guest(String name, String gender, String country, String contact)
+Guest : +String getName()
+Guest : +setName(String name)
+Guest : +String getGender()
+Guest : +setGender(String gender)
+Guest : +String getCountry()
+Guest : +setCountry(String country)
+Guest : +String getContact()
+Guest : +setContact(String contact)
+Guest : +String toString()
+
+Room : +Room(int roomNumber, String size, String category, double price, boolean status, String facilities)
+Room : +String getFormattedRoom()
+Room : +int getRoomNumber()
+Room : +setRoomNumber(int roomNumber)
+Room : +String getSize()
+Room : +setSize(String size)
+Room : +String getCategory()
+Room : +setCategory(String category)
+
+
+
 
 @enduml

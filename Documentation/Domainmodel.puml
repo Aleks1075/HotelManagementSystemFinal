@@ -2,16 +2,33 @@
 
 !pragma layout smetana
 
-object London
-object Washington
-object Berlin
-object NewYork
+object Main
+object Hotel
+object Guest
+object Room
+object Food
+object HotelStaff
+object Checkout
+object CheckIn
+object Receipt
+object EarlyCheckIn
+object StandardSingleRoom
+object StandardDoubleRoom
+object LuxurySingleRoom
+object LuxuryDoubleRoom
 
-map CapitalCity {
- UK *-> London
- USA *--> Washington
- Germany *---> Berlin
-}
+Hotel <|-- Guest
+Room <|-- Checkout
+Room <|-- CheckIn
+CheckIn <|-- EarlyCheckIn
+Food <|-- Room
 
-NewYork --> CapitalCity::USA
+Main *-- Hotel
+Hotel *-- "20" Room
+Checkout *-- Receipt
+Room *-- "5" StandardSingleRoom
+Room *-- "5" StandardDoubleRoom
+StandardSingleRoom *-- "5" LuxurySingleRoom
+StandardDoubleRoom *-- "5" LuxuryDoubleRoom
+
 @enduml

@@ -2,24 +2,30 @@
 
 !pragma layout smetana
 
+Actor HotelStaff
 
+participant HotelSystem as hotelsystem
+participant Booking as booking
+participant Guest as guest
+participant Room as room
+participant FileIO as fileio
 
-:Main Admin: as Admin
-(Use the application) as (Use)
+HotelStaff -> hotelsystem : create a booking and check in
+hotelsystem -> booking : bookRoom()
+booking -> hotelsystem : String[] bookingList(roomNumber, guestInfo, duration)
+guest -> hotelsystem : Guest(String name, int phoneNumber, int age, boolean gender)
+room -> hotelsystem : Room(String roomType, int floor, int floorNumber, boolean available, int price)
+hotelsystem -> fileio : newData()
+fileio -> fileio : saveData()
+fileio -> hotelsystem : showData()
+hotelsystem -> HotelStaff : The guest is checked in
 
-User -> (Start)
-User --> (Use)
+HotelStaff -> hotelsystem : Check the guest out
+hotelsystem -> fileio : checkGuestOut()
+fileio -> fileio : loadData()
+booking -> hotelsystem : showReceipt()
+hotelsystem -> fileio : clearData()
+fileio -> fileio : updateData()
+hotelsystem -> HotelStaff : The guest is checked out
 
-Admin ---> (Use)
-
-note right of Admin : This is an example.
-
-note right of (Use)
-A note can also
-be on several lines
-end note
-
-note "This note is connected\nto several objects." as N2
-(Start) .. N2
-N2 .. (Use)
 @enduml
