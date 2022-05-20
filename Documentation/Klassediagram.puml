@@ -20,6 +20,7 @@ IO <|.. FileIO
 Hotel o-- Food: has-a
 
 Main : + static main(String[] args)
+
 Hotel :  +HotelManagement()
 
 Booking : -Room room
@@ -106,5 +107,21 @@ Room : +double getPrice()
 Room : +setPrice(double price)
 Room : +String toString()
 
+Booking : +Booking(Room room, Guest guest, int days, String startDate, String endDate)
+Booking : +String getFormattedBooking()
+Booking : +String getReceipt()
+Booking : +Food getFood()
+Booking : +setFood(Food food)
+Booking : +Room getRoom()
+Booking : +setRoom(Room room)
+Booking : +String getStartDate()
+Booking : +setStartDate(String startDate)
+Booking : +String getEndDate()
+Booking : +setEndDate(String endDate)
+Booking : +int getDays()
+Booking : +setDays(int days)
+Booking : +Guest getGuest()
+Booking : +setGuest(Guest guest)
+Booking : +String toString()
 
 @enduml
