@@ -1,5 +1,6 @@
 
-public class Room {
+public class Room
+{
 
     private int roomNumber = 0;
     private String size;        //double or single
@@ -8,7 +9,8 @@ public class Room {
     private double price;     //true for booked
     private String facilities;
 
-    public Room(int roomNumber, String size, String category, double price, boolean status, String facilities) {
+    public Room(int roomNumber, String size, String category, double price, boolean status, String facilities)
+    {
         this.roomNumber = roomNumber;
         this.size = size;
         this.category = category;
@@ -25,52 +27,64 @@ public class Room {
         return roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
+    public void setRoomNumber(int roomNumber)
+    {
         this.roomNumber = roomNumber;
     }
 
-    public String getSize() {
+    public String getSize()
+    {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(String size)
+    {
         this.size = size;
     }
 
-    public String getCategory() {
+    public String getCategory()
+    {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(String category)
+    {
         this.category = category;
     }
 
-    public boolean isStatus() {
+    public boolean isStatus()
+    {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(boolean status)
+    {
         this.status = status;
     }
 
-    public String getFacilities() {
+    public String getFacilities()
+    {
         return facilities;
     }
 
-    public void setFacilities(String facilities) {
+    public void setFacilities(String facilities)
+    {
         this.facilities = facilities;
     }
 
-    public double getPrice() {
+    public double getPrice()
+    {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(double price)
+    {
         this.price = price;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Værelsesnummer: " + roomNumber + ", Størrelse: " + size + ", Kategori: " + category
                 + ", Pris: DKK " + price + ", Status: " + status + ", Faciliteter: " + facilities;
     }

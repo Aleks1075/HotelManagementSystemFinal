@@ -33,11 +33,11 @@ public class Food
 
     public String getFormattedFood(){
         return ID + "," + foodItem + "," + foodPrice;
-        //return room.getRoomNumber()+","+guest.getName()+","+foodItem+","+foodPrice;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "ID: " + ID + "\n" + "Mad vare: " + foodItem + "\n" +
                 "Pris: DKK " + foodPrice + "\n" + "-----------------" + "\n";
     }
